@@ -10,8 +10,16 @@ app.get('/welcome', function(req, res){
   res.send('<h1>Hello there! You just programmed with Node.js</h1>');
 });
 
-app.get('/style/style.css', function(req, res){
-  res.sendFile(__dirname + '/style/style.css');
+app.get('/css/style.css', function(req, res){
+  res.sendFile(__dirname + '/css/style.css');
+});
+
+app.get('/css/bootstrap.css', function(req, res){
+  res.sendFile(__dirname + '/css/bootstrap.css');
+});
+
+app.get('/js/bootstrap.min.js', function(req, res){
+  res.sendFile(__dirname + '/js/bootstrap.min.js');
 });
 
 io.on('connection', function(socket){
