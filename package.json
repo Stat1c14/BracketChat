@@ -1,0 +1,9 @@
+{
+  "name": "BracketChat",
+  "version": "0.0.1",
+  "description": "A live chat service built for sharing ideas and code in group settings, like classrooms",
+  "dependencies": {
+    "express": "^4.10.2",
+    "socket.io": "^1.3.7"
+  }
+}
