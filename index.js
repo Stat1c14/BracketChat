@@ -10,6 +10,10 @@ app.get('/welcome', function(req, res){
   res.send('<h1>Hello there! You just programmed with Node.js</h1>');
 });
 
+app.get('/about.html', function(req, res){
+  res.sendFile(__dirname + '/about.html');
+});
+
 app.get('/css/style.css', function(req, res){
   res.sendFile(__dirname + '/css/style.css');
 });
