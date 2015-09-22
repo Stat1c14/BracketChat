@@ -22,8 +22,36 @@ app.get('/css/bootstrap.css', function(req, res){
   res.sendFile(__dirname + '/css/bootstrap.css');
 });
 
+app.get('/css/solarized-light.css', function(req, res){
+  res.sendFile(__dirname + '/css/solarized-light.css');
+});
+
 app.get('/js/bootstrap.min.js', function(req, res){
   res.sendFile(__dirname + '/js/bootstrap.min.js');
+});
+
+app.get('/js/rainbow.min.js', function(req, res){
+  res.sendFile(__dirname + '/js/rainbow.min.js');
+});
+
+app.get('/js/shCore.js', function(req, res){
+  res.sendFile(__dirname + '/js/shCore.js');
+});
+
+app.get('/js/shBrushSql.js', function(req, res){
+  res.sendFile(__dirname + '/js/shBrushSql.js');
+});
+
+app.get('/css/shCoreDefault.css', function(req, res){
+  res.sendFile(__dirname + '/css/shCoreDefault.css');
+});
+
+app.get('/js/language/generic.js', function(req, res){
+  res.sendFile(__dirname + '/js/language/generic.js');
+});
+
+app.get('/js/language/html.js', function(req, res){
+  res.sendFile(__dirname + '/js/language/html.js');
 });
 
 io.on('connection', function(socket){

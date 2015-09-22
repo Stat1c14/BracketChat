@@ -5,6 +5,13 @@
   <!-- Bootstrap -->
   <link href="css/bootstrap.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+
+  <script type="text/javascript" src="js/shCore.js"></script>
+  <script type="text/javascript" src="js/shBrushSql.js"></script>
+  <link type="text/css" rel="stylesheet" href="css/shCoreDefault.css"/>
+  <script type="text/javascript">SyntaxHighlighter.all();</script>
+  
 </head>
 <body>
   <div class="navbar navbar-default navbar-fixed-top">
@@ -18,54 +25,6 @@
         </button>
       </div>
       <div class="navbar-collapse collapse" id="navbar-main">
-
-          <!-- <ul class="nav navbar-nav">
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Themes <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a href="../default/">Default</a></li>
-                <li class="divider"></li>
-                <li><a href="../cerulean/">Cerulean</a></li>
-                <li><a href="../cosmo/">Cosmo</a></li>
-                <li><a href="../cyborg/">Cyborg</a></li>
-                <li><a href="../darkly/">Darkly</a></li>
-                <li><a href="../flatly/">Flatly</a></li>
-                <li><a href="../journal/">Journal</a></li>
-                <li><a href="../lumen/">Lumen</a></li>
-                <li><a href="../paper/">Paper</a></li>
-                <li><a href="../readable/">Readable</a></li>
-                <li><a href="../sandstone/">Sandstone</a></li>
-                <li><a href="../simplex/">Simplex</a></li>
-                <li><a href="../slate/">Slate</a></li>
-                <li><a href="../spacelab/">Spacelab</a></li>
-                <li><a href="../superhero/">Superhero</a></li>
-                <li><a href="../united/">United</a></li>
-                <li><a href="../yeti/">Yeti</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="../help/">Help</a>
-            </li>
-            <li>
-              <a href="http://news.bootswatch.com">Blog</a>
-            </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">United <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="download">
-                <li><a href="http://jsfiddle.net/bootswatch/cvLkpsx0/">Open Sandbox</a></li>
-                <li class="divider"></li>
-                <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
-                <li><a href="./bootstrap.css">bootstrap.css</a></li>
-                <li class="divider"></li>
-                <li><a href="./variables.less">variables.less</a></li>
-                <li><a href="./bootswatch.less">bootswatch.less</a></li>
-                <li class="divider"></li>
-                <li><a href="./_variables.scss">_variables.scss</a></li>
-                <li><a href="./_bootswatch.scss">_bootswatch.scss</a></li>
-              </ul>
-            </li>
-          </ul> -->
-
           <ul class="nav navbar-nav navbar-right">
             <li><a href="about.html">About BracketChat</a></li>
           </ul>
@@ -78,14 +37,11 @@
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
   </body>
-  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <script> var socket = io(); </script>
   <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
-  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
   <script>
     var socket = io();
     $('form').submit(function(){
@@ -94,7 +50,14 @@
       return false;
     });
     socket.on('chat message', function(msg){
-      $('#messages').append($('<li>').text(msg));
+      if (msg.indexOf("code: ") > -1) {
+        var newmsg = msg.replace('code: ', '');
+        $('#messages').append($('<pre>').text(newmsg));
+      }
+      else {
+        $('#messages').append($('<li>').text(msg));
+      }
+      //SyntaxHighlighter.highlight({}, this);
     });
   </script>
   </html>
