@@ -6,7 +6,7 @@
 body { 
 	font-family: 'Open Sans', sans-serif;
 }
-form { 
+form.msgform { 
     background: #eee; padding: 3px; position: fixed; bottom: 0; width: 100%; 
 }
 form input { 
@@ -14,6 +14,10 @@ form input {
 }
 form button { 
 	width: 9%; background: #2068B0; border: none; padding: 10px; color: white;
+}
+
+ul#messages {
+	padding-bottom: 50px;
 }
 #messages { 
 	list-style-type: none; margin: 0; padding-top: 50px; 

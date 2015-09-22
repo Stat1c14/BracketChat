@@ -25,6 +25,40 @@
         </button>
       </div>
       <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Rooms <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="themes">
+                <li><a href="../default/">Default</a></li>
+                <li class="divider"></li>
+                <li><a href="../cerulean/">Ember</a></li>
+                <li><a href="../cosmo/">Sailboat</a></li>
+                <li><a href="../cyborg/">Paddle</a></li>
+                <li><a href="../darkly/">Diamond</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#"  data-toggle="modal" data-target="#modal">Code Block</a>
+            </li>
+            <!--<li>
+              <a href="http://news.bootswatch.com">Blog</a>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">More <span class="caret"></span></a>
+              <ul class="dropdown-menu" aria-labelledby="download">
+                <li><a href="http://jsfiddle.net/bootswatch/cvLkpsx0/">Open Sandbox</a></li>
+                <li class="divider"></li>
+                <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
+                <li><a href="./bootstrap.css">bootstrap.css</a></li>
+                <li class="divider"></li>
+                <li><a href="./variables.less">variables.less</a></li>
+                <li><a href="./bootswatch.less">bootswatch.less</a></li>
+                <li class="divider"></li>
+                <li><a href="./_variables.scss">_variables.scss</a></li>
+                <li><a href="./_bootswatch.scss">_bootswatch.scss</a></li>
+              </ul>
+            </li>-->
+          </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="about.html">About BracketChat</a></li>
           </ul>
@@ -33,9 +67,31 @@
     </div>
 
     <ul id="messages"></ul>
-    <form action="">
+    <form class="msgform" action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
+
+    <div class="modal" id="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Insert Code Block</h4>
+          </div>
+          <form class="codeblock" action="">
+          <div class="modal-body">
+              <textarea id="marea" rows="4" cols="50" style="margin: 0px; width: 555px; height: 87px; resize: none;">
+                Paste code here.
+              </textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
   </body>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="js/bootstrap.min.js"></script>
@@ -44,9 +100,14 @@
   <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
   <script>
     var socket = io();
-    $('form').submit(function(){
+    $('form.msgform').submit(function(){
       socket.emit('chat message', $('#m').val());
       $('#m').val('');
+      return false;
+    });
+    $('form.codeblock').submit(function(){
+      socket.emit('chat message', 'code: ' + $('#marea').val());
+      $("#modal").modal("hide");
       return false;
     });
     socket.on('chat message', function(msg){

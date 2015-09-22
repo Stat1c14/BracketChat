@@ -949,7 +949,7 @@ if (typeof jQuery === 'undefined') {
   Modal.BACKDROP_TRANSITION_DURATION = 150
 
   Modal.DEFAULTS = {
-    backdrop: true,
+    backdrop: false,
     keyboard: true,
     show: true
   }
