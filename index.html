@@ -118,6 +118,7 @@
       else {
         $('#messages').append($('<li>').text(msg));
       }
+      $("html, body").animate({ scrollTop: $(document).height() }, "slow");
       //SyntaxHighlighter.highlight({}, this);
     });
   </script>
