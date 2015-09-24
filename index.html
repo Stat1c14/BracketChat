@@ -3,21 +3,24 @@
 <head>
   <title>BracketChat</title>
   <link rel="shortcut icon" href="favicon.ico"  type="image/x-icon" />
-  <!-- Bootstrap -->
+  
+  <!-- JQuery and Styles-->
   <link href="css/bootstrap.css" rel="stylesheet">
+  <script src="//code.jquery.com/jquery-1.11.1.js"></script>
   <link rel="stylesheet" type="text/css" href="css/style.css">
-  <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-
-  <link href='http://yandex.st/highlightjs/7.0/styles/default.min.css' rel='stylesheet'/>
-  <script src='http://yandex.st/highlightjs/7.0/highlight.min.js'/>
+  
+  <!-- Syntax Highlighting -->
+  <link href='//yandex.st/highlightjs/7.0/styles/default.min.css' rel='stylesheet'/>
+  <script src='//yandex.st/highlightjs/7.0/highlight.min.js'/>
   <script>
     hljs.initHighlightingOnLoad();
   </script>
-  
 </head>
 <body>
   <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
+
+      <!-- Navagation -->
       <div class="navbar-header">
         <a href="#" class="navbar-brand">{ BracketChat</a>
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
@@ -26,43 +29,15 @@
           <span class="icon-bar"></span>
         </button>
       </div>
+
       <div class="navbar-collapse collapse" id="navbar-main">
-          <ul class="nav navbar-nav">
-            <!--<li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Rooms <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="themes">
-                <li><a href="../default/">Default</a></li>
-                <li class="divider"></li>
-                <li><a href="../cerulean/">Ember</a></li>
-                <li><a href="../cosmo/">Sailboat</a></li>
-                <li><a href="../cyborg/">Paddle</a></li>
-                <li><a href="../darkly/">Diamond</a></li>
-              </ul>
-            </li>-->
+        <ul class="nav navbar-nav">
             <li>
               <a href="#" data-toggle="modal" data-target="#usage">Usage</a>
             </li>
             <li>
               <a href="#" data-toggle="modal" data-target="#modal">Insert Code Block</a>
             </li>
-            <!--<li>
-              <a href="http://news.bootswatch.com">Blog</a>
-            </li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="download">More <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="download">
-                <li><a href="http://jsfiddle.net/bootswatch/cvLkpsx0/">Open Sandbox</a></li>
-                <li class="divider"></li>
-                <li><a href="./bootstrap.min.css">bootstrap.min.css</a></li>
-                <li><a href="./bootstrap.css">bootstrap.css</a></li>
-                <li class="divider"></li>
-                <li><a href="./variables.less">variables.less</a></li>
-                <li><a href="./bootswatch.less">bootswatch.less</a></li>
-                <li class="divider"></li>
-                <li><a href="./_variables.scss">_variables.scss</a></li>
-                <li><a href="./_bootswatch.scss">_bootswatch.scss</a></li>
-              </ul>
-            </li>-->
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#" data-toggle="modal" data-target="#about">About BracketChat</a></li>
@@ -71,11 +46,15 @@
       </div>
     </div>
 
+    <!-- Where messages are added -->
     <ul id="messages"></ul>
+
+    <!-- Typing input -->
     <form class="msgform" action="">
       <input id="m" autocomplete="off" /><button>Send</button>
     </form>
 
+    <!-- Modals -->
     <div class="modal" id="modal">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -84,13 +63,13 @@
             <h4 class="modal-title">Insert Code Block</h4>
           </div>
           <form class="codeblock" action="">
-          <div class="modal-body">
+            <div class="modal-body">
               <textarea id="marea" rows="4" cols="50" style="margin: 0px; width: 555px; height: 87px; resize: none;">Paste code here</textarea>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Send</button>
-          </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Send</button>
+            </div>
           </form>
         </div>
       </div>
@@ -104,12 +83,12 @@
             <h4 class="modal-title">Usage</h4>
           </div>
           <form class="codeblock" action="">
-          <div class="modal-body">
+            <div class="modal-body">
               <p>To chat, just type in the box below and hit enter or press send. To insert code blocks, press the "Insert Code Block" button and paste or type in the text area. Syntax highlighting and language detection will be done automatically. You can also include code blocks in the message area by typing "code:" followed with your code.</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
           </form>
         </div>
       </div>
@@ -123,24 +102,27 @@
             <h4 class="modal-title">About</h4>
           </div>
           <form class="codeblock" action="">
-          <div class="modal-body">
-              <p>Hey, this is Chandler, the creator of BracketChat. BracketChat is a program designed to allow code to be shared accross large groups of people instantaneously. It is meant to be used in classroom/conference settings to quickly exchange code snippets amoungst participants without having to share personal information. It works by using Node.js and the socket.io library to asynchronously transport data between the end users and the server. This process occurs seemlessly and allows for a high number of simultaneous connections as well as near-instant message delivery times. If you would like to learn more about me, visit my site at <a href="http://www.chandlerfreeman.com">chandlerfreeman.com</a>. Thanks for visiting BracketChat!</p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
+            <div class="modal-body">
+              <p>Hey, this is Chandler, the creator of BracketChat. BracketChat is a program designed to allow code to be shared accross large groups of people instantaneously. It is meant to be used in classroom/conference settings to quickly exchange code snippets amoungst participants without having to share personal information. It works by using Node.js and the socket.io library to asynchronously transport data between the end users and the server. This process occurs seemlessly and allows for a high number of simultaneous connections as well as near-instant message delivery times. If you would like to learn more about me, visit my site at <a href="//www.chandlerfreeman.com">chandlerfreeman.com</a>. Thanks for visiting BracketChat!</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
           </form>
         </div>
       </div>
     </div>
   </body>
-  <!-- Include all compiled plugins (below), or include individual files as needed -->
+
+  <!-- Include Bootstrap JS and socket.io -->
   <script src="js/bootstrap.min.js"></script>
-  <script src="/socket.io/socket.io.js"></script>
-  <script> var socket = io(); </script>
-  <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+  <script src="//cdn.socket.io/socket.io-1.2.0.js"></script>
   <script>
+
+    // Create socket
     var socket = io();
+
+    // Send message
     $('form.msgform').submit(function(){
       if ($('#m').val() != "") {
         socket.emit('chat message', $('#m').val());
@@ -148,13 +130,19 @@
       }
       return false;
     });
+
+    // Handle code blocks
     $('form.codeblock').submit(function(){
       socket.emit('chat message', 'code: ' + $('#marea').val());
       $('#marea').val('');
       $("#modal").modal("hide");
       return false;
     });
+
+    // Recieve message
     socket.on('chat message', function(msg){
+
+      // Determine whether the text is marked as code
       if (msg.indexOf("code: ") > -1) {
         var newmsg = msg.replace('code: ', '');
         $('#messages').append($('<pre>').text(newmsg));
@@ -162,10 +150,14 @@
       else {
         $('#messages').append($('<li>').text(msg));
       }
+
+      // Auto-scrolling
       $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+
+      // Syntax highlighting
       $('pre').each(function(i, e) {
         hljs.highlightBlock(e);
       }); 
     });
   </script>
-  </html>
+</html>
