@@ -27,7 +27,7 @@
       </div>
       <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
-            <li class="dropdown">
+            <!--<li class="dropdown">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#" id="themes">Rooms <span class="caret"></span></a>
               <ul class="dropdown-menu" aria-labelledby="themes">
                 <li><a href="../default/">Default</a></li>
@@ -37,6 +37,9 @@
                 <li><a href="../cyborg/">Paddle</a></li>
                 <li><a href="../darkly/">Diamond</a></li>
               </ul>
+            </li>-->
+            <li>
+              <a href="#" data-toggle="modal" data-target="#usage">Usage</a>
             </li>
             <li>
               <a href="#" data-toggle="modal" data-target="#modal">Insert Code Block</a>
@@ -86,6 +89,25 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button type="submit" class="btn btn-primary">Send</button>
+          </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal" id="usage">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title">Usage</h4>
+          </div>
+          <form class="codeblock" action="">
+          <div class="modal-body">
+              <p>To chat, just type in the box below and hit enter or press send. To insert code blocks, press the "Insert Code Block" button and paste or type in the text area. Syntax highlighting will be done automatically. You can also include code blocks in the message area by typing "code:" followed with your code.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
           </form>
         </div>
