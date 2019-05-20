@@ -1,4 +1,4 @@
-# BracketChat
+# [UNMAINTAINED] BracketChat
 
 ## Description
 
